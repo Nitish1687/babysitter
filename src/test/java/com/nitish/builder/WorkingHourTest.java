@@ -1,13 +1,21 @@
 package com.nitish.builder;
 
-import org.junit.Assert;
+import com.nitish.builder.WorkingHour.WorkingHourBuilder;
 import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 public class WorkingHourTest {
 
     @Test
     public void shouldReturnTheWorkingHourBuilder() {
-        WorkingHour.WorkingHourBuilder builder = WorkingHour.builder();
-        Assert.assertNotNull(builder);
+        WorkingHourBuilder builder = WorkingHour.builder();
+        assertNotNull(builder);
+    }
+
+    @Test
+    public void shouldReturnWorkingHourObjectByUsingBuilderPattern() {
+        WorkingHour workingHour = WorkingHour.builder().build();
+        assertNotNull(workingHour);
     }
 }
