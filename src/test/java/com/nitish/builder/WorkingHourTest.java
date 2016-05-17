@@ -28,6 +28,14 @@ public class WorkingHourTest {
     @Test(expected = TimeFormatException.class)
     public void shouldThrowTimeFormatExceptionWhenTimeIsNotPassedInCorrectFormat() {
         WorkingHourBuilder builder = WorkingHour.builder();
-        WorkingHour workingHour = builder.withStartTime("5:30 PM").withEndTime("4:00 AM").build();
+        builder.withStartTime("5:30 PM").withEndTime("4:00 AM").build();
+    }
+
+    @Test
+    public void shouldAddedTheDefaultStartAndEndTimeIfItsNotProvidedByUser() {
+        WorkingHour workingHour = WorkingHour.builder().build();
+
+        assertEquals("17:00", workingHour.getStartTime());
+        assertEquals("04:00", workingHour.getEndTime());
     }
 }

@@ -30,6 +30,8 @@ public class WorkingHour {
 
         private String startTime;
         private String endTime;
+        private static final String DEFAULT_START_TIME = "17:00";
+        private static final String DEFAULT_END_TIME = "04:00";
 
         public WorkingHourBuilder withStartTime(String startAt) {
             this.startTime = startAt;
@@ -43,8 +45,8 @@ public class WorkingHour {
 
         public WorkingHour build() {
             WorkingHour workingHour = new WorkingHour();
-            workingHour.startTime = formatTimeTo(startTime);
-            workingHour.endTime = formatTimeTo(endTime);
+            workingHour.startTime = null != startTime ? formatTimeTo(startTime) : DEFAULT_START_TIME;
+            workingHour.endTime = null != endTime ? formatTimeTo(endTime) : DEFAULT_END_TIME;
             return workingHour;
         }
 
