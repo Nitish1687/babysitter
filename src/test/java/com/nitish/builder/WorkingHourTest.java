@@ -32,16 +32,19 @@ public class WorkingHourTest {
     }
 
     @Test
-    public void shouldAddedTheDefaultStartAndEndTimeIfItsNotProvidedByUser() {
-        WorkingHour workingHour = WorkingHour.builder().build();
-
-        assertEquals("17:00", workingHour.getStartTime());
-        assertEquals("04:00", workingHour.getEndTime());
-    }
-
-    @Test
     public void shouldSetBedTimeProvidedByUser() {
         WorkingHour workingHour = WorkingHour.builder().withBedTime("09:00PM").build();
         assertEquals("21:00", workingHour.getBedTime());
     }
+
+    @Test
+    public void shouldAddedTheDefaultStartBedAndEndTimeIfItsNotProvidedByUser() {
+        WorkingHour workingHour = WorkingHour.builder().build();
+
+        assertEquals("17:00", workingHour.getStartTime());
+        assertEquals("21:00", workingHour.getBedTime());
+        assertEquals("04:00", workingHour.getEndTime());
+    }
+
+
 }
