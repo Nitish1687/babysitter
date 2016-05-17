@@ -16,30 +16,6 @@ public class WorkingHourTest {
     }
 
     @Test
-    public void shouldReturnWorkingHourObjectByUsingBuilderPattern() {
-        WorkingHour workingHour = WorkingHour.builder().build();
-        assertNotNull(workingHour);
-    }
-
-    @Test
-    public void shouldSetStartTimeToWorkingHourByBuilder() {
-        WorkingHourBuilder builder = WorkingHour.builder();
-
-        WorkingHour workingHour = builder.withStartTime("5:00PM").build();
-
-        assertEquals("5:00PM", workingHour.getStartTime());
-    }
-
-    @Test
-    public void shouldSetEndTimeToWorkingHourByBuilder() {
-        WorkingHourBuilder builder = WorkingHour.builder();
-
-        WorkingHour workingHour = builder.withEndTime("4:00AM").build();
-
-        assertEquals("4:00AM", workingHour.getEndTime());
-    }
-
-    @Test
     public void shouldMapWorkingHoursToTwentyFourCycle() {
         WorkingHourBuilder builder = WorkingHour.builder();
 
