@@ -4,13 +4,13 @@ public enum ChargeEnum {
 
     START_TIME_TO_BED_TIME_CHARGE(12);
 
-    private Integer amount;
+    private int amount;
 
     ChargeEnum(int amt) {
         amount = amt;
     }
 
-    public Integer getAmount() {
+    public int getAmount() {
         return amount;
     }
 }
