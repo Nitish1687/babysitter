@@ -3,6 +3,7 @@ package com.nitish.builder;
 import com.nitish.builder.WorkingHour.WorkingHourBuilder;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class WorkingHourTest {
@@ -17,5 +18,14 @@ public class WorkingHourTest {
     public void shouldReturnWorkingHourObjectByUsingBuilderPattern() {
         WorkingHour workingHour = WorkingHour.builder().build();
         assertNotNull(workingHour);
+    }
+
+    @Test
+    public void shouldSetStartTimeToWorkingHourByBuilder() {
+        WorkingHourBuilder builder = WorkingHour.builder();
+
+        WorkingHour workingHour = builder.withStartTime("5:00PM").build();
+
+        assertEquals("5:00PM", workingHour.getStartTime());
     }
 }
