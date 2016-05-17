@@ -28,4 +28,15 @@ public class WorkingHourTest {
 
         assertEquals("5:00PM", workingHour.getStartTime());
     }
+
+    @Test
+    public void shouldSetEndTimeToWorkingHourByBuilder() {
+        WorkingHourBuilder builder = WorkingHour.builder();
+
+        WorkingHour workingHour = builder.withEndTime("4:00AM").build();
+
+        assertEquals("4:00AM", workingHour.getEndTime());
+
+
+    }
 }
