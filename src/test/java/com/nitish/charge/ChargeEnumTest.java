@@ -20,5 +20,11 @@ public class ChargeEnumTest {
         assertEquals(8, bedTimeToMidNightCharge.getAmount());
     }
 
+    @Test
+    public void shouldReturnStandardChargeDuringMidNightToEnd() {
+        ChargeEnum midnightToEndCharge = ChargeEnum.MIDNIGHT_TO_END_CHARGE;
+        assertEquals(16, midnightToEndCharge.getAmount());
+    }
+
 
 }
