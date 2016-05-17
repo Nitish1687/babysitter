@@ -2,7 +2,8 @@ package com.nitish.charge;
 
 public enum ChargeEnum {
 
-    START_TIME_TO_BED_TIME_CHARGE(12);
+    START_TIME_TO_BED_TIME_CHARGE(12),
+    BED_TIME_TO_MIDNIGHT_CHARGE(8);
 
     private int amount;
 
