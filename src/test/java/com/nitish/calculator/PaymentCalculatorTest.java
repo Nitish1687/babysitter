@@ -9,12 +9,11 @@ public class PaymentCalculatorTest {
 
 
     @Test
-    public void shouldReturnCustomsChargesFromStartToMidNightTime() {
+    public void shouldCalculateChargeFromStartToEndTime() {
         PaymentCalculator calculator = new PaymentCalculator();
 
-        int amount = calculator.calculate(WorkingHour.builder().withStartTime("5:00PM").withBedTime("10:00PM").build());
+        int amount = calculator.calculate(WorkingHour.builder().withStartTime("5:00PM").withEndTime("03:00AM").build());
 
-        assertEquals(76, amount);
-
+        assertEquals(120, amount);
     }
 }
