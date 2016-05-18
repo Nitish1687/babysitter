@@ -10,10 +10,10 @@ import static java.lang.Math.abs;
 public class StartToBedTimeChargeCalculator implements ChargeCalculator {
 
     private final TimeValidator validator;
-    private final BedTimeToMidNightChargeCalculator nextChargeCalculator;
+    private final ChargeCalculator nextChargeCalculator;
     private static final String REGEX = ":";
 
-    public StartToBedTimeChargeCalculator(TimeValidator validator, BedTimeToMidNightChargeCalculator chargeCalculator) {
+    public StartToBedTimeChargeCalculator(TimeValidator validator, ChargeCalculator chargeCalculator) {
         this.validator = validator;
         this.nextChargeCalculator = chargeCalculator;
     }
