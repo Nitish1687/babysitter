@@ -25,11 +25,11 @@ public class StartToBedTimeChargeCalculator implements ChargeCalculator {
         String[] startTimeToken = startTime.split(REGEX);
         String bedTime = workingHour.getBedTime();
         String[] bedTimeToken = bedTime.split(REGEX);
-        if(validator.isStartEndTimeAreValid(workingHour)){
+        if (validator.isStartEndTimeAreValid(workingHour)) {
             totalAmount += amountCalculationFromStartToBedTime(totalHours(startTimeToken[0], bedTimeToken[0])) +
                     amountCalculationFromStartToBedTime(totalMinutes(startTimeToken[1], bedTimeToken[1]));
         }
-        return totalAmount;
+        return totalAmount + nextChargeCalculator.calculate(workingHour);
     }
 
     private int amountCalculationFromStartToBedTime(int hours) {

@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -27,5 +28,15 @@ public class StartToBedTimeChargeCalculatorTest {
         int amount = calculator.calculate(workingHour);
 
         Assert.assertEquals(48, amount);
+    }
+
+    @Test
+    public void shouldChainToBedToMidNight() {
+        WorkingHour workingHour = WorkingHour.builder().build();
+        ChargeCalculator calculator = new StartToBedTimeChargeCalculator(validator, chargeCalculator);
+        when(chargeCalculator.calculate(workingHour)).thenReturn(0);
+        calculator.calculate(workingHour);
+
+        verify(chargeCalculator).calculate(workingHour);
     }
 }
