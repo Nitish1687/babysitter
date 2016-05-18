@@ -43,6 +43,7 @@ public class WorkingHour {
         private String bedTime;
         private static final String DEFAULT_START_TIME = "17:00";
         private static final String DEFAULT_BED_TIME = "21:00";
+        private static final String DEFAULT_MIDNIGHT_TIME = "24:00";
         private static final String DEFAULT_END_TIME = "04:00";
 
         public WorkingHourBuilder withStartTime(String startAt) {
@@ -63,8 +64,9 @@ public class WorkingHour {
         public WorkingHour build() {
             WorkingHour workingHour = new WorkingHour();
             workingHour.startTime = null != startTime ? formatTimeTo(startTime) : DEFAULT_START_TIME;
-            workingHour.endTime = null != endTime ? formatTimeTo(endTime) : DEFAULT_END_TIME;
             workingHour.bedTime = null != bedTime ? formatTimeTo(bedTime) : DEFAULT_BED_TIME;
+            workingHour.midNightTime = DEFAULT_MIDNIGHT_TIME;
+            workingHour.endTime = null != endTime ? formatTimeTo(endTime) : DEFAULT_END_TIME;
             return workingHour;
         }
 

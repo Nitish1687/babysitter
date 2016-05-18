@@ -4,9 +4,7 @@ import com.nitish.builder.WorkingHour.WorkingHourBuilder;
 import com.nitish.exception.TimeFormatException;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class WorkingHourTest {
 
@@ -51,5 +49,12 @@ public class WorkingHourTest {
     public void shouldAddMidNightTimeFiledToWorkingHourPOJO() {
         WorkingHour build = WorkingHour.builder().build();
         assertNull(build.getMidNightTime());
+    }
+
+    @Test
+    public void shouldReturnTheMidNightTime() throws Exception {
+        WorkingHour workingHour = WorkingHour.builder().build();
+
+        assertEquals("24:00", workingHour.getMidNightTime());
     }
 }
