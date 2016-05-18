@@ -7,23 +7,14 @@ import static org.junit.Assert.assertEquals;
 
 public class PaymentCalculatorTest {
 
-    private static final int DEFAULT_CHARGE_BETWEEN_START_TO_BED_TIME = 48;
 
     @Test
-    public void shouldCalculateChargeFromStartTimeToBedTime() {
+    public void shouldReturnCustomsChargesFromStartToMidNightTime() {
         PaymentCalculator calculator = new PaymentCalculator();
 
-        int amount = calculator.calculate(WorkingHour.builder().build());
+        int amount = calculator.calculate(WorkingHour.builder().withStartTime("5:00PM").withBedTime("10:00PM").build());
 
-        assertEquals(DEFAULT_CHARGE_BETWEEN_START_TO_BED_TIME, amount);
-    }
+        assertEquals(76, amount);
 
-    @Test
-    public void shoutReturnAmountForCustomsChargeStartToBedTime() {
-        PaymentCalculator calculator = new PaymentCalculator();
-
-        int amount = calculator.calculate(WorkingHour.builder().withStartTime("5:20PM").withBedTime("9:30PM").build());
-
-        assertEquals(48, amount);
     }
 }
