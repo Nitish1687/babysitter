@@ -11,6 +11,7 @@ public class WorkingHour {
     private String startTime;
     private String endTime;
     private String bedTime;
+    private String midNightTime;
 
     private WorkingHour() {
     }
@@ -29,6 +30,10 @@ public class WorkingHour {
 
     public String getBedTime() {
         return bedTime;
+    }
+
+    public String getMidNightTime() {
+        return midNightTime;
     }
 
     public static class WorkingHourBuilder {
