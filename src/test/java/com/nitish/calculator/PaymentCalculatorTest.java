@@ -17,4 +17,13 @@ public class PaymentCalculatorTest {
 
         assertEquals(DEFAULT_CHARGE_BETWEEN_START_TO_BED_TIME, amount);
     }
+
+    @Test
+    public void shoutReturnAmountForCustomsChargeStartToBedTime() {
+        PaymentCalculator calculator = new PaymentCalculator();
+
+        int amount = calculator.calculate(WorkingHour.builder().withStartTime("5:20PM").withBedTime("9:30PM").build());
+
+        assertEquals(48, amount);
+    }
 }
